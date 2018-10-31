@@ -3,10 +3,12 @@ package cn.business.impl;
 import cn.business.Login;
 import cn.dao.UserDao;
 import cn.pojo.User;
+import cn.redis.RedisConn;
 import cn.util.OpenIdBycode;
 import cn.util.RandomStr;
 import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,9 +20,12 @@ public class LoginImpl implements Login {
     private UserDao userDao;
     @Autowired
     private OpenIdBycode openIdBycode;
+    @Autowired
+    private RedisConn redisConn;
 
     @Override
     public String login(String code){
+        System.out.println(redisConn.getRedisTemplate());
         if("".equals(code) || code.length() < 5 ){
             return "code不正确";
         }

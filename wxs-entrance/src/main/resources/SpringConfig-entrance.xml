@@ -6,5 +6,5 @@
             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
             http://www.springframework.org/schema/context
             http://www.springframework.org/schema/context/spring-context.xsd">
-    <context:component-scan base-package="cn"/>
+    <context:component-scan base-package="cn.business,cn.util"/>
 </beans>

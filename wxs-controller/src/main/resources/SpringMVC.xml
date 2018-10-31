@@ -13,7 +13,7 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <context:annotation-config/>
-    <context:component-scan base-package="cn.wxs.controller,cn.wxs.util"/>
+    <context:component-scan base-package="cn.controller,cn.util"/>
     <mvc:annotation-driven/>
 
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"></bean>
