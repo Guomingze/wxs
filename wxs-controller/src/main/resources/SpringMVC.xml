@@ -16,7 +16,10 @@
     <context:component-scan base-package="cn.controller,cn.util"/>
     <mvc:annotation-driven/>
 
-    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"></bean>
+    <!--SpringSwaggerConfig-->
+    <bean class="com.mangofactory.swagger.configuration.SpringSwaggerConfig" />
+
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters">
             <list>
@@ -31,15 +34,14 @@
             </list>
         </property>
     </bean>
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/"></property>
-        <property name="suffix" value=".jsp"></property>
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
-    </bean>
+
     <!-- 文件上传 -->
     <bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="102400000"></property>
     </bean>
+
+    <!-- 访问静态资源 -->
+    <mvc:resources location="/swagger" mapping="/**"/>
 
     <!--处理请求返回json字符串的中文乱码问题 -->
     <mvc:annotation-driven>
