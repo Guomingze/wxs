@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/Entrance")
 @Api(value="登录controller",tags={"用户登录接口"})
 public class Entrance {
-
     @Autowired
     private LoginImpl logins;
 

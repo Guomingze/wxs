@@ -1,11 +1,11 @@
 package cn.pojo;
 
 
-public class Coupons<lnteger> {
+public class Coupons {
 
     private Integer cid;
     private Integer cname;
-    private lnteger ctype;
+    private Integer ctype;
     private double cmoney;
     private String c1;
     private String c2;
@@ -27,11 +27,11 @@ public class Coupons<lnteger> {
         return cid;
     }
 
-    public lnteger getCtype() {
+    public Integer getCtype() {
         return this.ctype;
     }
 
-    public void setCtype(lnteger ctype) {
+    public void setCtype(Integer ctype) {
         this.ctype = ctype;
     }
 

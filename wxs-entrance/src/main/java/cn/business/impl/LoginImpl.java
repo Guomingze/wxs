@@ -33,7 +33,7 @@ public class LoginImpl implements Login {
         User user = new User();
         user.setUpwd(openid);
         List<User> users = userDao.allUser(user);
-        if(users != null){
+        if(users.size() > 0){
             User user1 = users.get(0);
             user1.setUpwd(null);
             user1.setUphone(null);

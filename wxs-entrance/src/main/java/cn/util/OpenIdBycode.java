@@ -9,6 +9,7 @@ import org.apache.http.conn.ssl.AllowAllHostnameVerifier;
 import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -17,6 +18,7 @@ import java.io.IOException;
 public class OpenIdBycode {
 
     public String getOpenid(String code) {
+//        Logger logger = Logger.getLogger()
         SSLSocketFactory.getSocketFactory().setHostnameVerifier(new AllowAllHostnameVerifier());
         HttpClient hc = new DefaultHttpClient();
         //小程序登录凭证检验 请求地址

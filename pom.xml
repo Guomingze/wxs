@@ -12,6 +12,8 @@
         <module>wxs-dao</module>
         <module>wxs-controller</module>
         <module>wxs-entrance</module>
+        <module>wxs-ecommendDishesService</module>
+        <module>wxs-order</module>
     </modules>
 
     <dependencies>

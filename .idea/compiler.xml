@@ -6,6 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="org.ecommendDishesService" />
+        <module name="org.order" />
         <module name="wxs-controller" />
         <module name="wxs-dao" />
         <module name="wxs-entrance" />
