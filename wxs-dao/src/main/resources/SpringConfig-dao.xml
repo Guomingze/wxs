@@ -37,6 +37,13 @@
         <!--  自动扫描mapping.xml文件   -->
         <property name="mapperLocations" value="classpath*:cn/dao/impl/*.xml"></property>
         <property name="typeAliasesPackage" value="cn.pojo"></property>
+        <property name="plugins">
+                <bean class="com.github.pagehelper.PageInterceptor">
+                    <property name="properties">
+                        <value></value>
+                    </property>
+                </bean>
+        </property>
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
