@@ -96,7 +96,7 @@
         </dependency>
         <dependency>
             <groupId>org.wzzm.wxs</groupId>
-            <artifactId>org.order</artifactId>
+            <artifactId>org-fenyeservice</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
@@ -105,6 +105,18 @@
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.wzzm.wxs</groupId>
+            <artifactId>org.ecommendDishesService</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.wzzm.wxs</groupId>
+            <artifactId>org.order</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+    </dependency>
     </dependencies>
 
     <build>

@@ -22,11 +22,11 @@
     <update id="updateDishes" parameterType="Dishes">
         update dishes
           <trim prefix="set" suffixOverrides="," suffix="where did=#{did}">
-              <if test="dname!=null"> dname =#{dname},</if>
-              <if test="dstate != null"> dstate =#{dstate},</if>
-              <if test="d1 != null">and d1 =#{d1}</if>
-              <if test="d2 != null">and d2 =#{d2}</if>
-              <if test="d3 != null">and d3 =#{d3}</if>
+              <if test="dname!=null"> dname =#{dname} ,</if>
+              <if test="dstate != null"> dstate =#{dstate} ,</if>
+              <if test="d1 != null"> d1 =#{d1} ,</if>
+              <if test="d2 != null"> d2 =#{d2} ,</if>
+              <if test="d3 != null"> d3 =#{d3} ,</if>
           </trim>
     </update>
 

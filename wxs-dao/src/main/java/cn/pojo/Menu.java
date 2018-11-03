@@ -5,13 +5,13 @@ public class Menu {
 
   private Integer mid;
   private String mname;
-  private double mprice;
+  private Double mprice;
   private Integer mdishes;
   private Integer mstate;
+  private Integer frequency;
   private String m1;
   private String m2;
   private String m3;
-  private Integer frequency;
 
   public Integer getFrequency() {
     return this.frequency;
@@ -84,5 +84,9 @@ public class Menu {
   public void setM3(String m3) {
     this.m3 = m3;
   }
-
+  /*public String toString(){
+    return  "menu{" +
+            "mid" + mid +
+            ",mname" + mname
+  }*/
 }
