@@ -17,5 +17,5 @@ public interface OrderAndMenuService {
      * @param orderAndMenu 订单详情信息对象
      * @return 受影响行数
      */
-    int insertoam(OrderAndMenu orderAndMenu);
+   String insertoam(OrdeUtil ordeUtil);
 }

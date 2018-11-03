@@ -20,7 +20,7 @@ public class OpenIdBycode {
         SSLSocketFactory.getSocketFactory().setHostnameVerifier(new AllowAllHostnameVerifier());
         HttpClient hc = new DefaultHttpClient();
         //小程序登录凭证检验 请求地址
-        HttpGet hg = new HttpGet("https://api.weixin.qq.com/sns/jscode2session?appid=wxce1b29b2285f207a&secret=886ba38dbfb1b9fbe596d8d3b9352b5d&js_code=" + code + "&grant_type=authorization_code");
+        HttpGet hg = new HttpGet("https://api.weixin.qq.com/sns/jscode2session?appid=wx029d141ee4db450e&secret=c206df3e9951dde9826d7ba27c74406d&js_code=" + code + "&grant_type=authorization_code");
         HttpResponse resp = null;
         String openid = "";
         try {
