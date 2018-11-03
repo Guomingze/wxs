@@ -1,16 +1,28 @@
 package cn.util;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class OrdeUtil {
-    private Integer id;
+    private Integer oid;
+    private Integer uid;
     private Integer number;
     private String code;
 
-    public Integer getId() {
-        return this.id;
+    public Integer getOid() {
+        return this.oid;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setOid(Integer oid) {
+        this.oid = oid;
+    }
+
+    public Integer getUid() {
+        return this.uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
     }
 
     public Integer getNumber() {
