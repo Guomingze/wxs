@@ -75,17 +75,4 @@ public class OrderAndMenu {
         this.oam3 = oam3;
     }
 
-    @Override
-    public String toString() {
-        return "OrderAndMenu{" +
-                "oamid=" + oamid +
-                ", oamnumber=" + oamnumber +
-                ", oamoney=" + oamoney +
-                ", oam1='" + oam1 + '\'' +
-                ", oam2='" + oam2 + '\'' +
-                ", oam3='" + oam3 + '\'' +
-                ", menuList=" + menuList +
-                ", order=" + order +
-                '}';
-    }
 }

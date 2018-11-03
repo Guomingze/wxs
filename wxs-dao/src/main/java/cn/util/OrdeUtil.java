@@ -2,19 +2,21 @@ package cn.util;
 
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
+
 @Component
-public class OrdeUtil {
-    private Integer oid;
+public class OrdeUtil implements Serializable {
+    private Integer mid;
     private Integer uid;
     private Integer number;
     private String code;
 
-    public Integer getOid() {
-        return this.oid;
+    public Integer getMid() {
+        return this.mid;
     }
 
-    public void setOid(Integer oid) {
-        this.oid = oid;
+    public void setMid(Integer mid) {
+        this.mid = mid;
     }
 
     public Integer getUid() {
