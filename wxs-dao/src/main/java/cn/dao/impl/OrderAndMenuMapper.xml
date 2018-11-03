@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dao.OrderAndMenuDao">
+    <resultMap id="seloam" type="OrderAndMenu">
+        <result column="oamid" property="oamid"/>
+        <result column="oamnumber" property="oamnumber"/>
+        <result column="oamoney" property="oamoney"/>
+        <result column="oam1" property="oam1"/>
+        <result column="oam2" property="oam2"/>
+        <result column="oam3" property="oam3"/>
+        <association property="menuList" javaType="Menu">
+            <result column="mid" property="mid"/>
+            <result column="mname" property="mname"/>
+            <result column="mprice" property="mprice"/>
+            <result column="mdishes" property="mdishes"/>
+            <result column="mstate" property="mstate"/>
+            <result column="m1" property="m1"/>
+            <result column="m2" property="m2"/>
+            <result column="m3" property="m3"/>
+        </association>
+        <association property="order" javaType="Order">
+            <result column="oid" property="oid"/>
+            <result column="omoney" property="omoney"/>
+            <result column="otype" property="otype"/>
+            <result column="o1" property="o1"/>
+            <result column="o2" property="o2"/>
+            <result column="o3" property="o3"/>
+        </association>
+    </resultMap>
+    <select id="selectUserMenu" parameterType="OrderAndMenu" resultMap="seloam">
+        SELECT orderandmenu.oamid,orderandmenu.oamoid,orderandmenu.oammid,orderandmenu.oamoney,orderandmenu.oamnumber,menu.mprice FROM orderandmenu,menu WHERE orderandmenu.oammid = menu.mid where oamoid=#{menuList.mid}
+    </select>
+    <insert id="updateorderMenu" parameterType="OrderAndMenu">
+        insert into orderandmenu values (0,#{oamnumber},#{oamoney},#{oam1},#{oam2},#{oam3},#{menuList.mid},#{order.oid})
+    </insert>
+</mapper>

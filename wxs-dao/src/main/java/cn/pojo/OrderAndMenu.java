@@ -1,22 +1,29 @@
 package cn.pojo;
 
-import java.util.List;
 
 public class OrderAndMenu {
     private Integer oamid;
-    private Integer oamoid;
-    private Integer oammid;
     private Integer oamnumber;
+    private double oamoney;
     private String oam1;
     private String oam2;
     private String oam3;
-    private List<Menu> menuList;
+    private Menu menuList;
+    private Order order;
 
-    public List<Menu> getMenuList() {
+    public double getOamoney() {
+        return this.oamoney;
+    }
+
+    public void setOamoney(double oamoney) {
+        this.oamoney = oamoney;
+    }
+
+    public Menu getMenuList() {
         return menuList;
     }
 
-    public void setMenuList(List<Menu> menuList) {
+    public void setMenuList(Menu menuList) {
         this.menuList = menuList;
     }
 
@@ -28,20 +35,12 @@ public class OrderAndMenu {
         this.oamid = oamid;
     }
 
-    public Integer getOamoid() {
-        return oamoid;
+    public Order getOrder() {
+        return this.order;
     }
 
-    public void setOamoid(Integer oamoid) {
-        this.oamoid = oamoid;
-    }
-
-    public Integer getOammid() {
-        return oammid;
-    }
-
-    public void setOammid(Integer oammid) {
-        this.oammid = oammid;
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
     public Integer getOamnumber() {
@@ -74,5 +73,19 @@ public class OrderAndMenu {
 
     public void setOam3(String oam3) {
         this.oam3 = oam3;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderAndMenu{" +
+                "oamid=" + oamid +
+                ", oamnumber=" + oamnumber +
+                ", oamoney=" + oamoney +
+                ", oam1='" + oam1 + '\'' +
+                ", oam2='" + oam2 + '\'' +
+                ", oam3='" + oam3 + '\'' +
+                ", menuList=" + menuList +
+                ", order=" + order +
+                '}';
     }
 }
