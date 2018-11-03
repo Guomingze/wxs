@@ -58,19 +58,19 @@
     </bean>
 
 
-    <!-- AOP 事务处理 开始 -->
-    <!--<aop:aspectj-autoproxy/>-->
-    <!--<aop:config proxy-target-class="true">-->
-    <!--<aop:pointcut expression="execution(* cn.cn.cn.service.*(..))" id="transService"/>-->
-    <!--<aop:advisor pointcut-ref="transService" advice-ref="txAdvice"/>-->
-    <!--</aop:config>-->
-    <!--<tx:advice id="txAdvice" transaction-manager="transactionManager">-->
-    <!--<tx:attributes>-->
-    <!--<tx:method name="sel*" propagation="REQUIRED" rollback-for="Exception"/>-->
-    <!--<tx:method name="add*" propagation="REQUIRED" rollback-for="Exception"/>-->
-    <!--<tx:method name="update*" propagation="REQUIRED" rollback-for="Exception"/>-->
-    <!--<tx:method name="del*" propagation="REQUIRED" rollback-for="Exception"/>-->
-    <!--</tx:attributes>-->
-    <!--</tx:advice>-->
-    <!-- AOP 事务处理 结束 -->
+<!--     AOP 事务处理 开始
+    <aop:aspectj-autoproxy/>
+    <aop:config proxy-target-class="true">
+    <aop:pointcut expression="execution(* cn.cn.cn.service.*(..))" id="transService"/>
+    <aop:advisor pointcut-ref="transService" advice-ref="txAdvice"/>
+    </aop:config>
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+    <tx:attributes>
+    <tx:method name="sel*" propagation="REQUIRED" rollback-for="Exception"/>
+    <tx:method name="add*" propagation="REQUIRED" rollback-for="Exception"/>
+    <tx:method name="update*" propagation="REQUIRED" rollback-for="Exception"/>
+    <tx:method name="del*" propagation="REQUIRED" rollback-for="Exception"/>
+    </tx:attributes>
+    </tx:advice>
+     AOP 事务处理 结束 -->
 </beans>

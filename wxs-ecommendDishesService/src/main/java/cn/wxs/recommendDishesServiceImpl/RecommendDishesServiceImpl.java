@@ -4,16 +4,13 @@ import cn.dao.MenuDao;
 import cn.pojo.Menu;
 import cn.wxs.recommendDishesService.RecommendDishesService;
 import com.alibaba.fastjson.JSON;
-import org.omg.CORBA.TIMEOUT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 @Service
 public class RecommendDishesServiceImpl implements RecommendDishesService {

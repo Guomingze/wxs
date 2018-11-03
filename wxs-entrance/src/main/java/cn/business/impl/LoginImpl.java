@@ -21,6 +21,7 @@ public class LoginImpl implements Login {
 
     @Override
     public String login(String code){
+        System.out.println(code);
         if("".equals(code) || code == null){
             return "请提交code";
         }else if(code.length() < 5 ){

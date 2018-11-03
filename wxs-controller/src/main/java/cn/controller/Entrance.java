@@ -17,11 +17,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class Entrance {
     @Autowired
     private LoginImpl logins;
-
     @ResponseBody
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
-    @ApiOperation(value = "登录", httpMethod = "POST", response = User.class, notes = "登录后获取用户ID和username")
-    public String login(@ApiParam(name = "code",value = "登录凭证code") String code){
+    @RequestMapping(value = "/login",method = RequestMethod.GET)
+    @ApiOperation(value = "登录", httpMethod = "GET", response = User.class, notes = "登录后获取用户ID和username")
+    public String login(@ApiParam(name = "code",value = "登录凭证code")String code){
         return logins.login(code);
     }
 }

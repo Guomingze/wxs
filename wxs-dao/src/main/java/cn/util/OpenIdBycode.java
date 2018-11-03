@@ -9,7 +9,6 @@ import org.apache.http.conn.ssl.AllowAllHostnameVerifier;
 import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -35,6 +34,7 @@ public class OpenIdBycode {
             try {
                 //请求得到的响应内容 用户唯一标识
                 openid = EntityUtils.toString(resEntity, "utf-8");
+                System.out.println(openid);
                 Openid openid1 = JSON.parseObject(openid, Openid.class);
                 openid = openid1.getOpenid();
             } catch (Exception e) {
