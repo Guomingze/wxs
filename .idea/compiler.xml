@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="org-fenyeservice" />
         <module name="org.controller" />
         <module name="org.dao" />
         <module name="org.ecommendDishesService" />
