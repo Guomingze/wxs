@@ -4,12 +4,12 @@
     <update id="updatacoupons" parameterType="coupons">
         update coupons
         <trim prefix="set" suffixOverrides="," suffix="where cid=#{cid}">
-            <if test="cname != null">cname=#{cname}</if>
-            <if test="ctype != null">ctype=#{ctype}</if>
-            <if test="cmoney != null">cmoney=#{cmoney}</if>
-            <if test="c1 != null">c1=#{c1}</if>
-            <if test="c2 != null">c12=#{c2}</if>
-            <if test="c3 != null">c3=#{c3}</if>
+            <if test="cname != null">cname=#{cname} ,</if>
+            <if test="ctype != null">ctype=#{ctype} ,</if>
+            <if test="cmoney != null">cmoney=#{cmoney} ,</if>
+            <if test="c1 != null">c1=#{c1} ,</if>
+            <if test="c2 != null">c12=#{c2} ,</if>
+            <if test="c3 != null">c3=#{c3} ,</if>
         </trim>
     </update>
     <insert id="insertcoupons" parameterType="coupons">

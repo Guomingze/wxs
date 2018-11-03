@@ -14,6 +14,7 @@
         <module>wxs-entrance</module>
         <module>wxs-ecommendDishesService</module>
         <module>wxs-order</module>
+        <module>wxs-fenyeservice</module>
     </modules>
 
     <dependencies>
@@ -219,43 +220,12 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.9.2</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-all -->
+        <!--mybatis的分页插件，pageHelper-->
         <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-all</artifactId>
-            <version>1.4.0</version>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>5.0.0</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/net.sf.ehcache/ehcache-core -->
-        <dependency>
-            <groupId>net.sf.ehcache</groupId>
-            <artifactId>ehcache-core</artifactId>
-            <version>2.6.11</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-web -->
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-web</artifactId>
-            <version>1.4.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-spring -->
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-spring</artifactId>
-            <version>1.4.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.nutz/nutz-integration-quartz -->
-        <dependency>
-            <groupId>org.nutz</groupId>
-            <artifactId>nutz-integration-quartz</artifactId>
-            <version>1.r.66</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.nutz/nutz-integration-shiro -->
-        <dependency>
-            <groupId>org.nutz</groupId>
-            <artifactId>nutz-integration-shiro</artifactId>
-            <version>1.r.66</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-aspectj -->
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-aspectj</artifactId>
@@ -278,12 +248,6 @@
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-quartz</artifactId>
             <version>1.4.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper -->
-        <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper</artifactId>
-            <version>5.1.7</version>
         </dependency>
 
     </dependencies>
