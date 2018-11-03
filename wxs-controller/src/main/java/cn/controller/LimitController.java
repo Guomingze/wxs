@@ -9,17 +9,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 
 @Controller
-@RequestMapping("/test")
+@RequestMapping("/fenye")
 public class LimitController {
     @Autowired
     private LimitService ls;
-    @ResponseBody
-    @RequestMapping("/menuinfo")
     //查菜品
-    public  String dsf(){ return ls.getPageByIndex(2,5); }
+    @ResponseBody
+    @RequestMapping("/limit")
+    public  String dsf(){
+        return ls.getPageByIndex(2,5); }
     //查菜品种类
     @ResponseBody
-    @RequestMapping("/deshesinfo")
+    @RequestMapping("/dshesinfo")
     public String df(){ return  ls.getDishesIndex(1,5);}
 
     //查订单
@@ -28,4 +29,5 @@ public class LimitController {
     public String dssf(){
         return ls.getOrderIndex(1,2);
     }
+
 }

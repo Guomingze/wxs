@@ -43,10 +43,9 @@ public class LimitServiceImpl implements LimitService {
         PageHelper.startPage(index,pagesize);
         List<Menu> allMenu = md.getAllMenu(null);
         PageInfo<Menu> pageInfo = new PageInfo<Menu>(allMenu);
+        System.out.println(allMenu.size());
         return  JSON.toJSONString(pageInfo);
-
     }
-
     /**
      * 插件显示菜品种类分页
      * @param index 页码
@@ -60,10 +59,18 @@ public class LimitServiceImpl implements LimitService {
         return JSON.toJSONString(pageInfo);
     }
 
+    /**
+     * 插件显示订单分页
+     * @param index 页码
+     * @param pagesize 显示条数
+     * @return 菜品种类集合的json字符串
+     */
     public String getOrderIndex(int index, int pagesize) {
         PageHelper.startPage(index, pagesize);
         List<Order> allOrder = od.getOrdersByOrder(null);
         PageInfo<Order> pageInfo = new PageInfo<Order>(allOrder);
         return JSON.toJSONString(pageInfo);
     }
+
+
 }

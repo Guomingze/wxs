@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.dao.MenuDao">
  <select id="getAllMenu" parameterType="Menu" resultType="Menu">
-     select mid,mname,mprice,mdishes,mstate from menu
+     select * from menu
         <trim prefix="where" prefixOverrides="and|or">
               <if test="mid != null">and mid = #{mid}</if>
               <if test="mname != null">and mname = #{mname}</if>
-              <if test="mprice != 0.0">and mprice = #{mprice}</if>
+              <if test="mprice != null">and mprice = #{mprice}</if>
               <if test="mdishes != null">and mdishes = #{mdishes}</if>
               <if test="mstate != null">and mstate = #{mstate}</if>
               <if test="frequency !=null">and frequency=#{frequency}</if>
