@@ -15,4 +15,16 @@
     <insert id="insertcoupons" parameterType="coupons">
     insert into coupons values (0,#{cname},#{ctype},#{cmoney},#{c1},#{c2},#{c3})
 </insert>
+    <select id="getAllCoupons" parameterType="Coupons" resultType="Coupons">
+        select cid,cname,ctype,cmoney,c1,c2,c3 from `coupons`
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="cid != null"> and cid =#{cid}}</if>
+            <if test="cname != null"> and  cname =#{cname} </if>
+            <if test="ctype != null"> and  ctype =#{ctype}</if>
+            <if test="cmoney != null">and cmoney =#{cmoney}</if>
+            <if test="c1 != null">and c1 =#{c1}</if>
+            <if test="c2 != null">and c2 =#{c2}</if>
+            <if test="c3 != null">and c3 =#{c3}</if>
+        </trim>
+    </select>
 </mapper>

@@ -2,7 +2,15 @@ package cn.dao;
 
 import cn.pojo.Coupons;
 
+import java.util.List;
+
 public interface CouponsDao {
+    /**
+     * 查询优惠券信息
+     * @param coupons
+     * @return
+     */
+    List<Coupons> getAllCoupons (Coupons coupons);
     /**
      * 修改用户优惠券状态
      *
@@ -18,4 +26,6 @@ public interface CouponsDao {
      * @return 受影响心数
      */
     int insertcoupons(Coupons cou);
+
+
 }

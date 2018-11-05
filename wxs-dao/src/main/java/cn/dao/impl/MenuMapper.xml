@@ -34,4 +34,7 @@
         </trim>
     </update>
 
+    <select id="getAllMenuByDishes" resultType="Menu" parameterType="Menu">
+        select * from menu where mdishes=#{mdishes}
+    </select>
 </mapper>
