@@ -42,7 +42,8 @@ public class LimitController {
     @RequestMapping("/dshesinfo")
     @ApiImplicitParams({@ApiImplicitParam(name = "index",value="页码"), @ApiImplicitParam(name = "pagesize",value="每页显示量")})
 
-    public String df(Integer index, Integer pagesize){ return  ls.getDishesIndex(index,pagesize);}
+    public String df(Integer index, Integer pagesize){
+        return  ls.getDishesIndex(index,pagesize);}
 
     //查订单
     @ApiOperation(value = "订单查询")
@@ -53,7 +54,7 @@ public class LimitController {
         return ls.getOrderIndex(index,pagesize);
     }
 
-    @ApiOperation(value="优惠券")
+    @ApiOperation(value="店铺优惠券")
     @ResponseBody
     @RequestMapping("/cou")
     @ApiImplicitParams({@ApiImplicitParam(name = "index",value="页码"), @ApiImplicitParam(name = "pagesize",value="每页显示量")})
@@ -71,5 +72,13 @@ public class LimitController {
         //ls.testRedis(7);
 
         return ls.UserOrder(id,num);
+    }
+    @ApiOperation(value = "用户优惠券")
+    @ResponseBody
+    @RequestMapping("/caufy")
+    @ApiImplicitParams({@ApiImplicitParam(name="cauuid",value = "用户id"),@ApiImplicitParam(name = "index",value="页码"), @ApiImplicitParam(name = "pagesize",value="每页显示量")})
+    public String  bf(Integer cauuid,Integer index,Integer pagesize){
+
+        return ls.getCaU(cauuid,index,pagesize);
     }
 }

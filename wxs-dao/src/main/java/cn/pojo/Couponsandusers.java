@@ -1,6 +1,7 @@
 package cn.pojo;
 
 
+import java.util.List;
 
 public class Couponsandusers {
 
@@ -8,6 +9,24 @@ public class Couponsandusers {
   private Integer caucid;
   private Integer cauuid;
 
+  public List<Coupons> getCoupons() {
+    return coupons;
+  }
+
+  public void setCoupons(List<Coupons> coupons) {
+    this.coupons = coupons;
+  }
+
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
+
+  private List<Coupons> coupons;
+  private User user;
   public Integer getCauid() {
     return cauid;
   }

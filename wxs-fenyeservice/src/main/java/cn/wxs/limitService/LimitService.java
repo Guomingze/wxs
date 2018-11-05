@@ -50,7 +50,22 @@ public interface LimitService {
      */
     ValueOperations<String, Map<Integer, List<OrdeUtil>>> testRedis(int id);
 
+    /**
+     * 算钱
+     * @param id
+     * @param num
+     * @return
+     */
     String UserOrder(int id,int num);
 
+    /**
+     * 根据菜品种类查菜单
+     * @param mdishes
+     * @param index
+     * @param pagesize
+     * @return
+     */
     String getmenu(int mdishes,int index,int pagesize);
+
+    String getCaU(int cauuid,int index,int pagesize);
 }

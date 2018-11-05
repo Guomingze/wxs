@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.dao.CouponsanddusersDao">
-    <resultMap id="Couponsanduserss" type="Couponsandusers">
+    <resultMap id="Couponsandusers" type="Couponsandusers">
         <result column="cauid" property="cauid"/>
         <result column="caucid" property="caucid"/>
         <result column="cauuid" property="cauuid"/>
@@ -19,7 +19,7 @@
         <result column="u2" property="u2"/>
         <result column="u3" property="u3"/>
         </association>
-        <association property="coupons" javaType="Coupons">
+        <collection property="coupons" ofType="Coupons">
             <result column="cid" property="cid"/>
             <result column="cname" property="cname"/>
             <result column="ctype" property="ctype"/>
@@ -27,9 +27,9 @@
             <result column="c1" property="c1"/>
             <result column="c2" property="c2"/>
             <result column="c3" property="c3"/>
-        </association>
+        </collection>
     </resultMap>
- <select id="selCouponsanddusersDao" parameterType="Couponsandusers" resultMap="Couponsanduserss">
+ <select id="selCouponsanddusersDao" parameterType="Couponsandusers" resultMap="Couponsandusers">
   SELECT `user`.uname,coupons.cname,couponsandusers.cauid,coupons.cmoney FROM couponsandusers,coupons ,`user`WHERE couponsandusers.caucid = coupons.cid and couponsandusers.cauuid = `user`.uid and cauuid=#{cauuid} and cautype=1
  </select>
  <update id="updataCouponsanddusersDao" parameterType="Couponsandusers">

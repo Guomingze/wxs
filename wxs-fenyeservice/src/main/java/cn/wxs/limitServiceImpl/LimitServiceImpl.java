@@ -1,19 +1,12 @@
 package cn.wxs.limitServiceImpl;
 
-import cn.dao.CouponsDao;
-import cn.dao.DishesDao;
-import cn.dao.MenuDao;
-import cn.dao.OrderDao;
-import cn.pojo.Coupons;
-import cn.pojo.Dishes;
-import cn.pojo.Menu;
-import cn.pojo.Order;
+import cn.dao.*;
+import cn.pojo.*;
 import cn.util.OrdeUtil;
 import cn.wxs.limitService.LimitService;
 import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.omg.DynamicAny.DynValueOperations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -27,6 +20,17 @@ public class LimitServiceImpl implements LimitService {
     @Autowired
     private RedisTemplate redisTemplate;
 
+
+    public CouponsanddusersDao getCdd() {
+        return cdd;
+    }
+
+    public void setCdd(CouponsanddusersDao cdd) {
+        this.cdd = cdd;
+    }
+
+    @Autowired
+    private CouponsanddusersDao cdd;
     @Autowired
     private MenuDao md;
     public MenuDao getMd() {
@@ -61,7 +65,7 @@ public class LimitServiceImpl implements LimitService {
         List<Menu> allMenu = md.getAllMenu(null);
         PageInfo<Menu> pageInfo = new PageInfo<Menu>(allMenu);
 
-        return  JSON.toJSONString(pageInfo);
+        return  JSON.toJSONString(pageInfo.getList());
     }
 
 
@@ -80,8 +84,26 @@ public class LimitServiceImpl implements LimitService {
         menu.setMdishes(mdishes);
         List<Menu> all = md.getAllMenuByDishes(menu);
         PageInfo<Menu> pageInfo = new PageInfo<Menu>(all);
-        return JSON.toJSONString(pageInfo);
+        return JSON.toJSONString(pageInfo.getList());
     }
+    /**
+     * 分页显示用户的优惠券
+     * @param cauuid 用户ID
+     * @return
+     */
+    @Override
+    public String getCaU(int cauuid,int index,int pagesize) {
+        PageHelper.startPage(index,pagesize);
+        Couponsandusers csd = new Couponsandusers();
+        csd.setCauuid(cauuid);
+
+        List<Couponsandusers> couponsandusersList = cdd.selCouponsanddusersDao(csd);
+
+        PageInfo<Couponsandusers> pageInfo = new PageInfo<Couponsandusers>(couponsandusersList);
+
+        return JSON.toJSONString(pageInfo.getList());
+    }
+
     /**
      * 插件显示菜品种类分页
      * @param index 页码
@@ -92,7 +114,7 @@ public class LimitServiceImpl implements LimitService {
         PageHelper.startPage(index,pagesize);
         List<Dishes> allDishes = dd.getAllDishes(null);
         PageInfo<Dishes> pageInfo = new PageInfo<Dishes>(allDishes);
-        return JSON.toJSONString(pageInfo);
+        return JSON.toJSONString(pageInfo.getList());
     }
 
     /**
@@ -105,17 +127,28 @@ public class LimitServiceImpl implements LimitService {
         PageHelper.startPage(index, pagesize);
         List<Order> allOrder = od.getOrdersByOrder(null);
         PageInfo<Order> pageInfo = new PageInfo<Order>(allOrder);
-        return JSON.toJSONString(pageInfo);
+        return JSON.toJSONString(pageInfo.getList());
     }
 
+    /**
+     * 优惠券
+     * @param index
+     * @param pagesize
+     * @return
+     */
     @Override
     public String getCouponsIndex(int index, int pagesize) {
         PageHelper.startPage(index, pagesize);
         List<Coupons> couponsList = cd.getAllCoupons(null);
         PageInfo<Coupons> pageInfo = new PageInfo<Coupons>(couponsList);
-        return JSON.toJSONString(pageInfo);
+        return JSON.toJSONString(pageInfo.getList());
     }
 
+    /**
+     * redis 订单显示
+     * @param id
+     * @return
+     */
     public ValueOperations<String, Map<Integer,List<OrdeUtil>>> testRedis(int id) {
         ValueOperations<String, Map<Integer,List<OrdeUtil>>> operations = redisTemplate.opsForValue();
         return operations;
