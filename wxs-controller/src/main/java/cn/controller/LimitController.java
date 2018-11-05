@@ -1,33 +1,75 @@
 package cn.controller;
 
+import cn.util.OrdeUtil;
 import cn.wxs.limitService.LimitService;
+import com.mangofactory.swagger.annotations.ApiIgnore;
+import com.wordnik.swagger.annotations.ApiImplicitParam;
+import com.wordnik.swagger.annotations.ApiImplicitParams;
+import com.wordnik.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import javax.annotation.Resource;
+import javax.print.attribute.standard.MediaSize;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/fenye")
 public class LimitController {
     @Autowired
     private LimitService ls;
+
     //查菜品
+    @ApiOperation(value = "查询菜品")
     @ResponseBody
     @RequestMapping("/limit")
-    public  String dsf(){
-        return ls.getPageByIndex(2,5); }
+    @ApiImplicitParams({@ApiImplicitParam(name = "index",value="页码"), @ApiImplicitParam(name = "pagesize",value="每页显示量")})
+    public  String dsf(Integer index, Integer pagesize){
+        return ls.getPageByIndex(index,pagesize); }
+
+    @ApiOperation(value = "查询菜品根据菜品种类 ")
+    @ResponseBody
+    @RequestMapping("/dmenu")
+    @ApiImplicitParams({@ApiImplicitParam(name = "mdishes",value="种类"),@ApiImplicitParam(name = "index",value="页码"), @ApiImplicitParam(name = "pagesize",value="每页显示量")})
+    public  String dsfd(Integer mdishes,Integer index, Integer pagesize){
+        return ls.getmenu(mdishes,index,pagesize); }
+
     //查菜品种类
+    @ApiOperation(value="菜品种类")
     @ResponseBody
     @RequestMapping("/dshesinfo")
-    public String df(){ return  ls.getDishesIndex(1,5);}
+    @ApiImplicitParams({@ApiImplicitParam(name = "index",value="页码"), @ApiImplicitParam(name = "pagesize",value="每页显示量")})
+
+    public String df(Integer index, Integer pagesize){ return  ls.getDishesIndex(index,pagesize);}
 
     //查订单
+    @ApiOperation(value = "订单查询")
     @ResponseBody
     @RequestMapping("/orderinfo")
-    public String dssf(){
-        return ls.getOrderIndex(1,2);
+    @ApiImplicitParams({@ApiImplicitParam(name = "index",value="页码"), @ApiImplicitParam(name = "pagesize",value="每页显示量")})
+    public String dssf(Integer index, Integer pagesize){
+        return ls.getOrderIndex(index,pagesize);
     }
 
+    @ApiOperation(value="优惠券")
+    @ResponseBody
+    @RequestMapping("/cou")
+    @ApiImplicitParams({@ApiImplicitParam(name = "index",value="页码"), @ApiImplicitParam(name = "pagesize",value="每页显示量")})
+    public String f(Integer index, Integer pagesize){
+        return ls.getCouponsIndex(index,pagesize);
+    }
+
+
+
+    @ApiOperation(value = "订单结账")
+    @ResponseBody
+    @RequestMapping("/redis")
+    @ApiImplicitParams({@ApiImplicitParam(name = "id",value = "用户id"),@ApiImplicitParam(name = "num",value = "第几条订单")})
+    public String sdfv(Integer id, Integer num){
+        //ls.testRedis(7);
+
+        return ls.UserOrder(id,num);
+    }
 }

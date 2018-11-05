@@ -37,11 +37,11 @@ public class Menu {
     this.mname = mname;
   }
 
-  public double getMprice() {
+  public Double getMprice() {
     return mprice;
   }
 
-  public void setMprice(double mprice) {
+  public void setMprice(Double mprice) {
     this.mprice = mprice;
   }
 

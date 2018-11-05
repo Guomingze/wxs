@@ -25,4 +25,11 @@ public interface MenuDao {
      * @return 受影响行数
      */
     int updateMen(Menu menu);
+
+    /**
+     * 根据种类查菜品
+     * @param menu
+     * @return
+     */
+    List<Menu> getAllMenuByDishes(Menu menu);
 }

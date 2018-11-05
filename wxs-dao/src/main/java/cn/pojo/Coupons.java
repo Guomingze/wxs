@@ -4,7 +4,7 @@ package cn.pojo;
 public class Coupons {
 
     private Integer cid;
-    private Integer cname;
+    private String cname;
     private Integer ctype;
     private double cmoney;
     private String c1;
@@ -15,11 +15,11 @@ public class Coupons {
         this.cid = cid;
     }
 
-    public Integer getCname() {
+    public String  getCname() {
         return cname;
     }
 
-    public void setCname(Integer cname) {
+    public void setCname(String cname) {
         this.cname = cname;
     }
 
