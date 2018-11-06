@@ -31,38 +31,36 @@ public class OrderAndMenuServiceImpl implements OrderAndMenuService {
             Integer uid = users.get(0).getUid();
             ordeUtil.setUid(uid);
         }
-        System.out.println(ordeUtil.getUid());
         return ordeUtil;
     }
 
-    public String insertoam(OrdeUtil ordeUtil) {
-        String aa = "点餐失败";
-        Integer ii = 1;
-        ValueOperations<String, Map<Integer,OrdeUtil>> operations = redisTemplate.opsForValue();
+    public String insertoam(List<OrdeUtil> ordeUtils) {
+        OrdeUtil ordeUtil = new OrdeUtil();
+        ordeUtil.setCode(ordeUtils.get(0).getCode());
         OrdeUtil seloam = seloam(ordeUtil);
-        String a = "用户id" + ordeUtil.getUid();
-        System.out.println(operations.get(a));
+        Integer ii = 1;
+        String aa ;
+        ValueOperations<String, Map<Integer,List<OrdeUtil>>> operations = redisTemplate.opsForValue();
+        String a = "用户id" + seloam.getUid();
         if (operations.get(a) == null){
-            Map<Integer,OrdeUtil> map = new HashMap<Integer, OrdeUtil>();
-            map.put(ii,seloam);
+            Map<Integer,List<OrdeUtil>> map = new HashMap<Integer,List<OrdeUtil>>();
+            map.put(ii,ordeUtils);
             operations.set(a,map);
             redisTemplate.expire("a", 1, TimeUnit.DAYS);
-            System.out.println(1);
             aa ="点餐成功";
         }else {
-            Map<Integer, OrdeUtil> map = operations.get(a);
+            Map<Integer, List<OrdeUtil>> map = operations.get(a);
             Set<Integer> keys = map.keySet();
             Object[] objs = keys.toArray();
             int[] ints = new int[objs.length];
             for (int x = 0; x < objs.length; x++) {
                 ints[x] = Integer.parseInt(objs[x].toString());
             }
-            System.out.println(2);
             Arrays.sort(ints);
             int bigInt = ints[ints.length - 1];
-            map.put(bigInt + 1, ordeUtil);
+            map.put(bigInt + 1, ordeUtils);
             operations.set(a,map);
-            aa = "继续点餐成功";
+            aa = "点餐成功";
             redisTemplate.expire("a", 1, TimeUnit.DAYS);
         }
         return aa;
