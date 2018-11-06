@@ -8,6 +8,7 @@ import com.wordnik.swagger.annotations.ApiImplicitParam;
 import com.wordnik.swagger.annotations.ApiImplicitParams;
 import com.wordnik.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.core.annotation.OrderUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -76,5 +77,14 @@ public class LimitController {
     public String  bf(Integer cauuid,Integer index,Integer pagesize){
 
         return ls.getCaU(cauuid,index,pagesize);
+    }
+
+    @ApiOperation(value = "用户订单")
+    @ResponseBody
+    @RequestMapping("/userorder")
+    @ApiImplicitParams({@ApiImplicitParam(name = "uid",value = "用户ID")})
+    public String bbb(Integer uid){
+
+        return ls.getUserOrder(uid);
     }
 }

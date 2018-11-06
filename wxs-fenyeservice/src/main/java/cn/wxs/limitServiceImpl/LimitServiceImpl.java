@@ -152,10 +152,26 @@ public class LimitServiceImpl implements LimitService {
     public ValueOperations<String, Map<Integer,List<OrdeUtil>>> testRedis(int id) {
         ValueOperations<String, Map<Integer,List<OrdeUtil>>> operations = redisTemplate.opsForValue();
         return operations;
+
+    }
+
+    /**
+     * 根据用户ID查用户订单
+     * @param uid
+     * @return
+     */
+    public String getUserOrder(int uid){
+
+      return JSON.toJSONString(testRedis(uid).get("用户id" + uid));
     }
 
 
-
+    /**
+     * 结账
+     * @param id
+     * @param num
+     * @return
+     */
     public String UserOrder(int id,int num){
         Menu menu=new Menu();
         Double money=0.0;
@@ -169,6 +185,8 @@ public class LimitServiceImpl implements LimitService {
         }
         return "" + money + "";
     }
+
+
 
 
 }

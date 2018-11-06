@@ -18,7 +18,7 @@
 
     <!--SpringSwaggerConfig-->
     <bean class="com.mangofactory.swagger.configuration.SpringSwaggerConfig" />
-
+    <mvc:resources mapping="/statics/**" location="/statics/" />
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters">

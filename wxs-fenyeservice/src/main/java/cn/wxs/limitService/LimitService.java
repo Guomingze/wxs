@@ -50,6 +50,7 @@ public interface LimitService {
      */
     ValueOperations<String, Map<Integer, List<OrdeUtil>>> testRedis(int id);
 
+
     /**
      * 算钱
      * @param id
@@ -57,6 +58,13 @@ public interface LimitService {
      * @return
      */
     String UserOrder(int id,int num);
+
+    /**
+     * 显示用户的订单
+     * @param uid
+     * @return
+     */
+    String getUserOrder(int uid);
 
     /**
      * 根据菜品种类查菜单
@@ -67,5 +75,14 @@ public interface LimitService {
      */
     String getmenu(int mdishes,int index,int pagesize);
 
+    /**
+     * 该用户的优惠券
+     * @param cauuid
+     * @param index
+     * @param pagesize
+     * @return
+     */
     String getCaU(int cauuid,int index,int pagesize);
+
+
 }
