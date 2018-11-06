@@ -160,11 +160,14 @@ public class LimitServiceImpl implements LimitService {
         Menu menu=new Menu();
         Double money=0.0;
         ValueOperations<String, Map<Integer, List<OrdeUtil>>> MVO = testRedis(id);
-        for(int i=0; i<MVO.get("用户id" + id).get(num).size();i++){
+        if(MVO.size(("用户id" + id)) == 0){
+            return "此用户没有订单";
+        }
+        for(int i = 0; i < MVO.get("用户id" + id).get(num).size();i ++){
             menu.setMid(MVO.get("用户id" + id).get(num).get(i).getMid());
             money+=MVO.get("用户id" + id).get(num).get(i).getNumber()*md.getAllMenu(menu).get(0).getMprice();
         }
-        return ""+money+"";
+        return "" + money + "";
     }
 
 

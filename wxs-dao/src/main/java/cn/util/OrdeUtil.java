@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 @Component
 public class OrdeUtil implements Serializable {
+    private static Long serialVersionUID = 1L;
     private Integer mid;
     private Integer uid;
     private Integer number;
