@@ -1,8 +1,6 @@
 package cn.controller;
 
-import cn.util.OrdeUtil;
 import cn.wxs.limitService.LimitService;
-import com.mangofactory.swagger.annotations.ApiIgnore;
 import com.wordnik.swagger.annotations.ApiImplicitParam;
 import com.wordnik.swagger.annotations.ApiImplicitParams;
 import com.wordnik.swagger.annotations.ApiOperation;
@@ -10,10 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import javax.annotation.Resource;
-import javax.print.attribute.standard.MediaSize;
-import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/fenye")
@@ -69,7 +63,6 @@ public class LimitController {
     @RequestMapping("/redis")
     @ApiImplicitParams({@ApiImplicitParam(name = "id",value = "用户id"),@ApiImplicitParam(name = "num",value = "第几条订单")})
     public String sdfv(Integer id, Integer num){
-        //ls.testRedis(7);
 
         return ls.UserOrder(id,num);
     }
