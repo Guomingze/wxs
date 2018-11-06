@@ -33,6 +33,7 @@ public class LoginImpl implements Login {
         }
         User user = new User();
         user.setUpwd(openid);
+        user.setUtype(1);
         List<User> users = userDao.allUser(user);
         if(users.size() > 0){
             User user1 = users.get(0);
@@ -42,6 +43,7 @@ public class LoginImpl implements Login {
         }else{
             User user1 = new User();
             user1.setUpwd(openid);
+            user1.setUtype(1);
             user1.setUname(RandomStr.getRandomString(5));
             int count = userDao.addUser(user1);
             if(count < 0){

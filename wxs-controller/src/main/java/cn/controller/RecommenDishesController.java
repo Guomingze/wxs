@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("/test")
+@RequestMapping("/RecommenDishes")
 @Api(value = "/src",description ="Show the hot push merchandise" )
 public class RecommenDishesController {
     @Autowired
     private RecommendDishesService re;
     @ResponseBody
-    @RequestMapping("/test")
+    @RequestMapping("/RecommenDishes")
     public String aa(){
         return re.addRedis();
     }
