@@ -104,6 +104,12 @@ public class LimitServiceImpl implements LimitService {
         return JSON.toJSONString(pageInfo.getList());
     }
 
+    @Override
+    public String getMenuInfo(int id) {
+        return JSON.toJSONString(md.getMenuInfo(id));
+    }
+
+
     /**
      * 插件显示菜品种类分页
      * @param index 页码

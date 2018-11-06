@@ -32,4 +32,6 @@ public interface MenuDao {
      * @return
      */
     List<Menu> getAllMenuByDishes(Menu menu);
+
+    Menu getMenuInfo(int id);
 }

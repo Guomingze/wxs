@@ -1,5 +1,6 @@
 package cn.wxs.limitService;
 
+import cn.pojo.Menu;
 import cn.util.OrdeUtil;
 import org.springframework.data.redis.core.ValueOperations;
 
@@ -84,5 +85,11 @@ public interface LimitService {
      */
     String getCaU(int cauuid,int index,int pagesize);
 
+    /**
+     * 根据菜品ID展示菜品信息
+     * @param id 菜品id
+     * @return 菜品集合
+     */
+   String getMenuInfo(int id);
 
 }

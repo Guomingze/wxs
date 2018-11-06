@@ -37,4 +37,8 @@
     <select id="getAllMenuByDishes" resultType="Menu" parameterType="Menu">
         select * from menu where mdishes=#{mdishes}
     </select>
+
+    <select id="getMenuInfo" parameterType="int" resultType="Menu">
+        select * from menu where mid=#{mid}
+    </select>
 </mapper>

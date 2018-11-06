@@ -3,6 +3,7 @@ package cn.controller;
 import cn.pojo.Coupons;
 import cn.pojo.Dishes;
 import cn.pojo.Menu;
+import cn.pojo.Order;
 import cn.wxs.limitService.LimitService;
 import com.wordnik.swagger.annotations.ApiImplicitParam;
 import com.wordnik.swagger.annotations.ApiImplicitParams;
@@ -13,6 +14,8 @@ import org.springframework.core.annotation.OrderUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/fenye")
@@ -79,12 +82,19 @@ public class LimitController {
         return ls.getCaU(cauuid,index,pagesize);
     }
 
-    @ApiOperation(value = "用户订单")
+    @ApiOperation(value = "用户订单", httpMethod = "GET", response = Order.class, notes = "用户订单集合")
     @ResponseBody
     @RequestMapping("/userorder")
     @ApiImplicitParams({@ApiImplicitParam(name = "uid",value = "用户ID")})
     public String bbb(Integer uid){
 
         return ls.getUserOrder(uid);
+    }
+    @ApiOperation(value = "菜品信息", httpMethod = "GET", response = Menu.class, notes = "菜品信息对象")
+    @ResponseBody
+    @RequestMapping("/gf")
+    @ApiImplicitParams({@ApiImplicitParam(name = "id",value = "菜品ID")})
+    public  String gf(Integer id){
+        return ls.getMenuInfo(id);
     }
 }
